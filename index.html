@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bùi Đại Solar - Chuyên Gia Điện Mặt Trời</title>
+    <style>
+        :root { --primary: #0a67c1; --secondary: #18a957; --accent: #d32f2f; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: auto; padding: 15px; background: #f4f7f9; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 6px solid var(--primary); }
+        h2 { color: var(--primary); text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
+        .input-section { background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #eee; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        label { display: block; margin-top: 10px; font-weight: 600; font-size: 0.85rem; color: #444; }
+        input, select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        .result-box { background: #fff; border: 2px solid var(--secondary); border-radius: 12px; overflow: hidden; margin-top: 20px; }
+        .res-head { background: var(--secondary); color: white; padding: 10px; text-align: center; font-weight: bold; }
+        .res-row { display: flex; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid #f0f0f0; }
+        .res-row:last-child { border-bottom: none; }
+        .res-row b { color: var(--accent); }
+        .contact-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .btn { display: flex; align-items: center; justify-content: center; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; transition: 0.3s; }
+        .btn-zalo { background: #0068ff; }
+        .btn-call { background: #18a957; }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>⚡ TƯ VẤN ĐIỆN MẶT TRỜI 2025</h2>
+
+    <div class="input-section">
+        <label>Loại hình sử dụng điện</label>
+        <select id="type" onchange="toggleMode()">
+            <option value="res">Hộ Gia Đình (Điện Bậc Thang)</option>
+            <option value="biz">Kinh Doanh (Điện 3 Biểu Giá)</option>
+        </select>
+
+        <div id="resGroup">
+            <label>Tổng số điện tiêu thụ (kWh/tháng)</label>
+            <input type="number" id="resKwh" value="1000" oninput="calc()">
+        </div>
+
+        <div id="bizGroup" style="display:none">
+            <div class="grid">
+                <div>
+                    <label>Giờ Bình Thường (kWh)</label>
+                    <input type="number" id="normal" value="400" oninput="calc()">
+                </div>
+                <div>
+                    <label>Giờ Cao Điểm (kWh)</label>
+                    <input type="number" id="peak" value="300" oninput="calc()">
+                </div>
+            </div>
+            <label>Giờ Thấp Điểm (kWh)</label>
+            <input type="number" id="off" value="300" oninput="calc()">
+        </div>
+    </div>
+
+    <div class="grid">
+        <div>
+            <label>Tỷ lệ tự dùng (%)</label>
+            <input type="number" id="selfUse" value="85" oninput="calc()">
+        </div>
+        <div>
+            <label>Hiệu suất nắng (Giờ/ngày)</label>
+            <select id="sunHour" onchange="calc()">
+                <option value="4.5">Miền Nam / Campuchia (4.5h)</option>
+                <option value="4.0">Miền Trung (4.0h)</option>
+                <option value="3.5">Miền Bắc (3.5h)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="result-box">
+        <div class="res-head">KẾT QUẢ DỰ TOÁN THỰC TẾ</div>
+        <div class="res-row"><span>Tiền điện hiện tại:</span> <b id="outBill">0 đ</b></div>
+        <div class="res-row"><span>Gói lắp đặt đề xuất:</span> <b id="outKwp">0 kWp</b></div>
+        <div class="res-row"><span>Dung lượng lưu trữ:</span> <b id="outBat">0 kWh</b></div>
+        <div class="res-row"><span>Tổng đầu tư trọn gói:</span> <b id="outTotal" style="color:var(--secondary)">0 đ</b></div>
+        <div class="res-row"><span>Thời gian hoàn vốn:</span> <b id="outPayback">0 năm</b></div>
+        <div class="res-row"><span>Tiết kiệm sau 25 năm:</span> <b id="outProfit">0 đ</b></div>
+    </div>
+
+    <div class="contact-group">
+        <a href="tel:0838933638" class="btn btn-call">📞 GỌI TƯ VẤN</a>
+        <a href="https://zalo.me/0838933638" target="_blank" class="btn btn-zalo">💬 CHAT ZALO</a>
+    </div>
+</div>
+
+<script>
+function vnd(x) { return Math.round(x).toLocaleString("vi-VN") + " đ"; }
+
+function toggleMode() {
+    let t = document.getElementById("type").value;
+    document.getElementById("resGroup").style.display = (t === "res") ? "block" : "none";
+    document.getElementById("bizGroup").style.display = (t === "biz") ? "block" : "none";
+    calc();
+}
+
+function calc() {
+    let type = document.getElementById("type").value;
+    let bill = 0;
+    
+    // 1. TÍNH TOÁN TIỀN ĐIỆN THEO BIỂU GIÁ EVN 2025 (Gồm 8% VAT)
+    if(type === "res") {
+        let kwh = parseFloat(document.getElementById("resKwh").value) || 0;
+        let tiers = [1893, 1956, 2271, 2860, 3197, 3302]; // Giá chưa VAT
+        let use = [50, 50, 100, 100, 100, 999999];
+        for (let i = 0; i < tiers.length; i++) {
+            let take = Math.min(kwh, use[i]);
+            bill += take * tiers[i];
+            kwh -= take;
+            if (kwh <= 0) break;
+        }
+    } else {
+        let p = parseFloat(document.getElementById("peak").value) || 0;
+        let n = parseFloat(document.getElementById("normal").value) || 0;
+        let o = parseFloat(document.getElementById("off").value) || 0;
+        bill = (p * 3170 + n * 1860 + o * 1200); // Giá kinh doanh chưa VAT
+    }
+    bill = bill * 1.08; // Chốt giá sau thuế
+
+    // 2. KHỚP GÓI ĐẦU TƯ THEO BẢNG GIÁ ANH ĐẠI (Giá siêu cạnh tranh)
+    let config = { kwp: 0, cost: 0, bat: 0 };
+    
+    // Logic: Dựa vào số tiền điện để "đẩy" khách vào gói phù hợp trong bảng giá Excel
+    if (bill <= 1600000)      { config = { kwp: 3.24, cost: 65000000, bat: 5 }; }
+    else if (bill <= 2800000) { config = { kwp: 5.94, cost: 98000000, bat: 5 }; }
+    else if (bill <= 4500000) { config = { kwp: 8.10, cost: 135000000, bat: 10 }; }
+    else if (bill <= 6500000) { config = { kwp: 10.80, cost: 175000000, bat: 10 }; }
+    else if (bill <= 8500000) { config = { kwp: 13.50, cost: 225000000, bat: 15 }; }
+    else { 
+        // Đối với hệ lớn hơn, tính theo đơn giá sỉ để dễ chốt khách
+        config.kwp = bill / 480000; 
+        config.cost = config.kwp * 15000000; 
+        config.bat = Math.ceil(config.kwp / 2);
+    }
+
+    // 3. TÍNH HIỆU QUẢ KINH TẾ
+    let selfRate = parseFloat(document.getElementById("selfUse").value) / 100;
+    let annualSaving = bill * selfRate * 12;
+    let payback = config.cost / annualSaving;
+    let profit = (annualSaving * 25) - config.cost;
+
+    // 4. HIỂN THỊ KẾT QUẢ
+    document.getElementById("outBill").innerText = vnd(bill);
+    document.getElementById("outKwp").innerText = config.kwp.toFixed(2) + " kWp";
+    document.getElementById("outBat").innerText = config.bat + " kWh";
+    document.getElementById("outTotal").innerText = vnd(config.cost);
+    document.getElementById("outPayback").innerText = isFinite(payback) ? payback.toFixed(1) + " năm" : "---";
+    document.getElementById("outProfit").innerText = vnd(profit);
+}
+
+window.onload = calc;
+</script>
+</body>
+</html>
