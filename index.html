@@ -1,160 +1,665 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Bùi Đại Solar - Chuyên Gia Điện Mặt Trời</title>
-    <style>
-        :root { --primary: #0a67c1; --secondary: #18a957; --accent: #d32f2f; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: auto; padding: 15px; background: #f4f7f9; }
-        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-top: 6px solid var(--primary); }
-        h2 { color: var(--primary); text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
-        .input-section { background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #eee; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-        label { display: block; margin-top: 10px; font-weight: 600; font-size: 0.85rem; color: #444; }
-        input, select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-        .result-box { background: #fff; border: 2px solid var(--secondary); border-radius: 12px; overflow: hidden; margin-top: 20px; }
-        .res-head { background: var(--secondary); color: white; padding: 10px; text-align: center; font-weight: bold; }
-        .res-row { display: flex; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid #f0f0f0; }
-        .res-row:last-child { border-bottom: none; }
-        .res-row b { color: var(--accent); }
-        .contact-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-        .btn { display: flex; align-items: center; justify-content: center; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; transition: 0.3s; }
-        .btn-zalo { background: #0068ff; }
-        .btn-call { background: #18a957; }
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bùi Hữu Đại | Điện Công Nghiệp Hải Phòng</title>
+
+<meta name="description"
+content="Bùi Hữu Đại - Chuyên sửa chữa điện công nghiệp Hải Phòng, PLC, biến tần, điện nhà xưởng, điện mặt trời Hybrid có lưu trữ. Hotline 0838933628">
+
+<meta name="keywords"
+content="điện công nghiệp Hải Phòng, sửa điện Hải Phòng, điện mặt trời Hải Phòng, solar Hải Phòng, PLC Hải Phòng">
+
+<meta name="robots" content="index,follow">
+
+<meta name="author" content="Bùi Hữu Đại">
+
+<meta name="geo.region" content="VN-HP">
+<meta name="geo.placename" content="Hải Phòng">
+
+<link rel="canonical"
+href="https://buidaitech-me.github.io/b-n-s-a-2/">
+
+<link rel="icon"
+href="https://i.postimg.cc/rDw94QGK/1.jpg">
+
+<meta property="og:title"
+content="Bùi Hữu Đại | Điện Công Nghiệp Hải Phòng">
+
+<meta property="og:description"
+content="30 năm kinh nghiệm điện công nghiệp và điện mặt trời">
+
+<meta property="og:image"
+content="https://i.postimg.cc/rDw94QGK/1.jpg">
+
+<meta property="og:type"
+content="website">
+
+<meta property="og:url"
+content="https://buidaitech-me.github.io/b-n-s-a-2/">
+
+<meta name="theme-color" content="#0a3d62">
+
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"LocalBusiness",
+"name":"Bùi Hữu Đại Electrical & Solar",
+"image":"https://i.postimg.cc/rDw94QGK/1.jpg",
+"telephone":"+84838933628",
+"url":"https://buidaitech-me.github.io/b-n-s-a-2/",
+"priceRange":"$$",
+"address":{
+"@type":"PostalAddress",
+"addressLocality":"Hải Phòng",
+"addressCountry":"VN"
+},
+"areaServed":[
+"Hải Phòng",
+"Quảng Ninh",
+"Hải Dương"
+],
+"description":"Sửa chữa điện công nghiệp Hải Phòng và điện mặt trời Hybrid"
+}
+</script>
+
+<style>
+
+:root{
+--primary:#0a3d62;
+--orange:#f39c12;
+--green:#28a745;
+--blue:#0084ff;
+--mess:#006AFF;
+--red:#e74c3c;
+--bg:#f4f7f9;
+}
+
+*{
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:var(--bg);
+line-height:1.6;
+color:#333;
+padding-bottom:70px;
+}
+
+header{
+background:linear-gradient(135deg,#0a3d62,#14507c);
+color:white;
+text-align:center;
+padding:40px 20px;
+}
+
+header h1{
+margin:0;
+font-size:34px;
+}
+
+header p{
+margin:8px 0;
+}
+
+.badge{
+display:inline-block;
+background:#28a745;
+padding:8px 14px;
+border-radius:30px;
+margin-top:10px;
+font-size:14px;
+font-weight:bold;
+}
+
+.container{
+max-width:760px;
+margin:auto;
+padding:15px;
+}
+
+.box{
+background:white;
+padding:22px;
+border-radius:16px;
+margin-bottom:20px;
+box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+
+h2{
+margin-top:0;
+color:#0a3d62;
+border-left:5px solid var(--orange);
+padding-left:10px;
+}
+
+.service{
+background:#eef5fb;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+}
+
+.gallery img{
+width:100%;
+border-radius:12px;
+margin-bottom:14px;
+display:block;
+}
+
+input,select{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+margin:12px 0;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+background:var(--orange);
+color:white;
+font-size:16px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+}
+
+#result{
+display:none;
+background:#eaf8ef;
+padding:18px;
+margin-top:15px;
+border-radius:12px;
+border-left:5px solid #28a745;
+}
+
+.btn{
+display:block;
+text-decoration:none;
+text-align:center;
+padding:15px;
+border-radius:10px;
+margin-top:12px;
+font-weight:bold;
+color:white;
+}
+
+.call{
+background:var(--green);
+}
+
+.zalo{
+background:var(--blue);
+}
+
+.messenger{
+background:var(--mess);
+}
+
+.map{
+background:var(--red);
+}
+
+.hotline{
+background:#fff3cd;
+padding:14px;
+border-left:5px solid var(--orange);
+border-radius:10px;
+font-weight:bold;
+text-align:center;
+}
+
+.qr-box{
+text-align:center;
+margin-top:20px;
+}
+
+.qr-box img{
+width:180px;
+border-radius:12px;
+border:4px solid #eee;
+}
+
+.footer-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+height:60px;
+z-index:999;
+}
+
+.footer-nav a{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+font-weight:bold;
+color:white;
+}
+
+.lang-box{
+position:fixed;
+top:10px;
+right:10px;
+z-index:9999;
+}
+
+.lang-box select{
+padding:8px;
+border-radius:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+font-size:14px;
+color:#666;
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:28px;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="card">
-    <h2>⚡ TƯ VẤN ĐIỆN MẶT TRỜI 2025</h2>
+<div class="lang-box">
 
-    <div class="input-section">
-        <label>Loại hình sử dụng điện</label>
-        <select id="type" onchange="toggleMode()">
-            <option value="res">Hộ Gia Đình (Điện Bậc Thang)</option>
-            <option value="biz">Kinh Doanh (Điện 3 Biểu Giá)</option>
-        </select>
+<select onchange="changeLang(this.value)">
 
-        <div id="resGroup">
-            <label>Tổng số điện tiêu thụ (kWh/tháng)</label>
-            <input type="number" id="resKwh" value="1000" oninput="calc()">
-        </div>
+<option value="vi">🇻🇳 VI</option>
 
-        <div id="bizGroup" style="display:none">
-            <div class="grid">
-                <div>
-                    <label>Giờ Bình Thường (kWh)</label>
-                    <input type="number" id="normal" value="400" oninput="calc()">
-                </div>
-                <div>
-                    <label>Giờ Cao Điểm (kWh)</label>
-                    <input type="number" id="peak" value="300" oninput="calc()">
-                </div>
-            </div>
-            <label>Giờ Thấp Điểm (kWh)</label>
-            <input type="number" id="off" value="300" oninput="calc()">
-        </div>
-    </div>
+<option value="en">🇬🇧 EN</option>
 
-    <div class="grid">
-        <div>
-            <label>Tỷ lệ tự dùng (%)</label>
-            <input type="number" id="selfUse" value="85" oninput="calc()">
-        </div>
-        <div>
-            <label>Hiệu suất nắng (Giờ/ngày)</label>
-            <select id="sunHour" onchange="calc()">
-                <option value="4.5">Miền Nam / Campuchia (4.5h)</option>
-                <option value="4.0">Miền Trung (4.0h)</option>
-                <option value="3.5">Miền Bắc (3.5h)</option>
-            </select>
-        </div>
-    </div>
+<option value="cn">🇨🇳 中文</option>
 
-    <div class="result-box">
-        <div class="res-head">KẾT QUẢ DỰ TOÁN THỰC TẾ</div>
-        <div class="res-row"><span>Tiền điện hiện tại:</span> <b id="outBill">0 đ</b></div>
-        <div class="res-row"><span>Gói lắp đặt đề xuất:</span> <b id="outKwp">0 kWp</b></div>
-        <div class="res-row"><span>Dung lượng lưu trữ:</span> <b id="outBat">0 kWh</b></div>
-        <div class="res-row"><span>Tổng đầu tư trọn gói:</span> <b id="outTotal" style="color:var(--secondary)">0 đ</b></div>
-        <div class="res-row"><span>Thời gian hoàn vốn:</span> <b id="outPayback">0 năm</b></div>
-        <div class="res-row"><span>Tiết kiệm sau 25 năm:</span> <b id="outProfit">0 đ</b></div>
-    </div>
+</select>
 
-    <div class="contact-group">
-        <a href="tel:0838933638" class="btn btn-call">📞 GỌI TƯ VẤN</a>
-        <a href="https://zalo.me/0838933638" target="_blank" class="btn btn-zalo">💬 CHAT ZALO</a>
-    </div>
+</div>
+
+<header>
+
+<h1 id="title">BÙI HỮU ĐẠI</h1>
+
+<p id="sub1">
+30 Năm Kinh Nghiệm Điện Công Nghiệp & Tự Động Hóa
+</p>
+
+<p id="sub2">
+Sửa Chữa Nhà Xưởng • Xử Lý Sự Cố 24/7 • Solar Hybrid
+</p>
+
+<div class="badge" id="badge">
+⚡ Kỹ Sư Điện Công Nghiệp & Điện Mặt Trời
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="box">
+
+<div class="hotline" id="hotline">
+☎ Hotline/Zalo: 0838933628
+</div>
+
+</div>
+
+<div class="box">
+
+<h2 id="serviceTitle">
+Dịch Vụ Chuyên Môn
+</h2>
+
+<div class="service" id="s1">
+✔ Sửa chữa điện công nghiệp Hải Phòng
+</div>
+
+<div class="service" id="s2">
+✔ Bảo trì dây chuyền sản xuất
+</div>
+
+<div class="service" id="s3">
+✔ PLC - Biến tần - Tủ điện
+</div>
+
+<div class="service" id="s4">
+✔ Điện mặt trời Hybrid có lưu trữ
+</div>
+
+</div>
+
+<div class="box">
+
+<h2 id="calcTitle">
+Tính Cấu Hình Điện Mặt Trời
+</h2>
+
+<input
+type="number"
+id="money"
+placeholder="Ví dụ: 3000000">
+
+<select id="battery">
+
+<option value="0">Không dùng pin lưu trữ</option>
+
+<option value="5">Pin lưu trữ 5kWh</option>
+
+<option value="10">Pin lưu trữ 10kWh</option>
+
+<option value="15">Pin lưu trữ 15kWh</option>
+
+</select>
+
+<button onclick="calc()" id="btnText">
+TÍNH NGAY
+</button>
+
+<div id="result"></div>
+
+<div class="qr-box">
+
+<p id="qrText">
+<b>Quét QR Chat Zalo</b>
+</p>
+
+<img
+id="qrImg"
+alt="QR Zalo">
+
+</div>
+
+</div>
+
+<div class="box gallery">
+
+<h2 id="projectTitle">
+Công Trình Thực Tế
+</h2>
+
+<img
+loading="lazy"
+src="https://i.postimg.cc/rDw94QGK/1.jpg"
+alt="Điện công nghiệp Hải Phòng">
+
+<img
+loading="lazy"
+src="https://i.postimg.cc/HrktMB08/2.jpg"
+alt="Sửa chữa điện nhà xưởng">
+
+<img
+loading="lazy"
+src="https://i.postimg.cc/K185TJ7g/3.jpg"
+alt="Điện mặt trời Hải Phòng">
+
+<p id="projectText">
+Công trình thực tế trực tiếp khảo sát và thi công.
+</p>
+
+</div>
+
+<div class="box">
+
+<h2 id="supportTitle">
+Liên Hệ Hỗ Trợ
+</h2>
+
+<p id="supportText">
+Hỗ trợ điện công nghiệp tại Hải Phòng - Quảng Ninh.
+</p>
+
+<a
+href="tel:0838933628"
+class="btn call"
+id="callBtn">
+📞 GỌI NGAY
+</a>
+
+<a
+href="https://zalo.me/0838933628"
+target="_blank"
+class="btn zalo"
+id="zaloBtn">
+💬 CHAT ZALO
+</a>
+
+<a
+href="https://m.me/"
+target="_blank"
+class="btn messenger"
+id="messBtn">
+📩 MESSENGER
+</a>
+
+<a
+href="https://maps.google.com/?q=Hai+Phong"
+target="_blank"
+class="btn map"
+id="mapBtn">
+📍 XEM BẢN ĐỒ
+</a>
+
+</div>
+
+</div>
+
+<footer id="footerText">
+© 2026 Bùi Hữu Đại Electrical & Solar
+</footer>
+
+<div class="footer-nav">
+
+<a
+href="tel:0838933628"
+style="background:#28a745">
+📞 GỌI
+</a>
+
+<a
+href="https://zalo.me/0838933628"
+target="_blank"
+style="background:#0084ff">
+💬 ZALO
+</a>
+
+<a
+href="https://maps.google.com/?q=Hai+Phong"
+target="_blank"
+style="background:#e74c3c">
+📍 MAP
+</a>
+
 </div>
 
 <script>
-function vnd(x) { return Math.round(x).toLocaleString("vi-VN") + " đ"; }
 
-function toggleMode() {
-    let t = document.getElementById("type").value;
-    document.getElementById("resGroup").style.display = (t === "res") ? "block" : "none";
-    document.getElementById("bizGroup").style.display = (t === "biz") ? "block" : "none";
-    calc();
+let currentLang='vi';
+
+const data={
+
+vi:{
+title:'BÙI HỮU ĐẠI',
+sub1:'30 Năm Kinh Nghiệm Điện Công Nghiệp & Tự Động Hóa',
+sub2:'Sửa Chữa Nhà Xưởng • Xử Lý Sự Cố 24/7 • Solar Hybrid',
+badge:'⚡ Kỹ Sư Điện Công Nghiệp & Điện Mặt Trời',
+service:'Dịch Vụ Chuyên Môn',
+s1:'✔ Sửa chữa điện công nghiệp Hải Phòng',
+s2:'✔ Bảo trì dây chuyền sản xuất',
+s3:'✔ PLC - Biến tần - Tủ điện',
+s4:'✔ Điện mặt trời Hybrid có lưu trữ',
+calc:'Tính Cấu Hình Điện Mặt Trời',
+button:'TÍNH NGAY',
+project:'Công Trình Thực Tế',
+support:'Liên Hệ Hỗ Trợ',
+call:'📞 GỌI NGAY',
+zalo:'💬 CHAT ZALO',
+mess:'📩 MESSENGER',
+map:'📍 XEM BẢN ĐỒ',
+alert:'Vui lòng nhập tiền điện'
+},
+
+en:{
+title:'BUI HUU DAI',
+sub1:'30 Years Experience Industrial Electrical',
+sub2:'Factory Electrical • 24/7 Support • Solar Hybrid',
+badge:'⚡ Industrial Electrical Engineer',
+service:'Professional Services',
+s1:'✔ Industrial electrical repair',
+s2:'✔ Factory maintenance',
+s3:'✔ PLC - Inverter - Cabinet',
+s4:'✔ Hybrid solar systems',
+calc:'Solar Calculator',
+button:'CALCULATE',
+project:'Real Projects',
+support:'Technical Support',
+call:'📞 CALL NOW',
+zalo:'💬 CHAT ZALO',
+mess:'📩 MESSENGER',
+map:'📍 VIEW MAP',
+alert:'Please enter electricity bill'
+},
+
+cn:{
+title:'裴友大',
+sub1:'30年工业电气经验',
+sub2:'工厂维修 • 24小时服务 • 混合太阳能',
+badge:'⚡ 工业电气工程师',
+service:'专业服务',
+s1:'✔ 工业电气维修',
+s2:'✔ 工厂维护',
+s3:'✔ PLC - 变频器 - 配电柜',
+s4:'✔ 混合太阳能系统',
+calc:'太阳能计算',
+button:'立即计算',
+project:'实际工程',
+support:'技术支持',
+call:'📞 立即拨打',
+zalo:'💬 ZALO联系',
+mess:'📩 MESSENGER',
+map:'📍 查看地图',
+alert:'请输入电费'
 }
 
-function calc() {
-    let type = document.getElementById("type").value;
-    let bill = 0;
-    
-    // 1. TÍNH TOÁN TIỀN ĐIỆN THEO BIỂU GIÁ EVN 2025 (Gồm 8% VAT)
-    if(type === "res") {
-        let kwh = parseFloat(document.getElementById("resKwh").value) || 0;
-        let tiers = [1893, 1956, 2271, 2860, 3197, 3302]; // Giá chưa VAT
-        let use = [50, 50, 100, 100, 100, 999999];
-        for (let i = 0; i < tiers.length; i++) {
-            let take = Math.min(kwh, use[i]);
-            bill += take * tiers[i];
-            kwh -= take;
-            if (kwh <= 0) break;
-        }
-    } else {
-        let p = parseFloat(document.getElementById("peak").value) || 0;
-        let n = parseFloat(document.getElementById("normal").value) || 0;
-        let o = parseFloat(document.getElementById("off").value) || 0;
-        bill = (p * 3170 + n * 1860 + o * 1200); // Giá kinh doanh chưa VAT
-    }
-    bill = bill * 1.08; // Chốt giá sau thuế
+};
 
-    // 2. KHỚP GÓI ĐẦU TƯ THEO BẢNG GIÁ ANH ĐẠI (Giá siêu cạnh tranh)
-    let config = { kwp: 0, cost: 0, bat: 0 };
-    
-    // Logic: Dựa vào số tiền điện để "đẩy" khách vào gói phù hợp trong bảng giá Excel
-    if (bill <= 1600000)      { config = { kwp: 3.24, cost: 65000000, bat: 5 }; }
-    else if (bill <= 2800000) { config = { kwp: 5.94, cost: 98000000, bat: 5 }; }
-    else if (bill <= 4500000) { config = { kwp: 8.10, cost: 135000000, bat: 10 }; }
-    else if (bill <= 6500000) { config = { kwp: 10.80, cost: 175000000, bat: 10 }; }
-    else if (bill <= 8500000) { config = { kwp: 13.50, cost: 225000000, bat: 15 }; }
-    else { 
-        // Đối với hệ lớn hơn, tính theo đơn giá sỉ để dễ chốt khách
-        config.kwp = bill / 480000; 
-        config.cost = config.kwp * 15000000; 
-        config.bat = Math.ceil(config.kwp / 2);
-    }
+function changeLang(lang){
 
-    // 3. TÍNH HIỆU QUẢ KINH TẾ
-    let selfRate = parseFloat(document.getElementById("selfUse").value) / 100;
-    let annualSaving = bill * selfRate * 12;
-    let payback = config.cost / annualSaving;
-    let profit = (annualSaving * 25) - config.cost;
+currentLang=lang;
 
-    // 4. HIỂN THỊ KẾT QUẢ
-    document.getElementById("outBill").innerText = vnd(bill);
-    document.getElementById("outKwp").innerText = config.kwp.toFixed(2) + " kWp";
-    document.getElementById("outBat").innerText = config.bat + " kWh";
-    document.getElementById("outTotal").innerText = vnd(config.cost);
-    document.getElementById("outPayback").innerText = isFinite(payback) ? payback.toFixed(1) + " năm" : "---";
-    document.getElementById("outProfit").innerText = vnd(profit);
+let t=data[lang];
+
+document.getElementById('title').innerText=t.title;
+document.getElementById('sub1').innerText=t.sub1;
+document.getElementById('sub2').innerText=t.sub2;
+document.getElementById('badge').innerText=t.badge;
+document.getElementById('serviceTitle').innerText=t.service;
+document.getElementById('s1').innerText=t.s1;
+document.getElementById('s2').innerText=t.s2;
+document.getElementById('s3').innerText=t.s3;
+document.getElementById('s4').innerText=t.s4;
+document.getElementById('calcTitle').innerText=t.calc;
+document.getElementById('btnText').innerText=t.button;
+document.getElementById('projectTitle').innerText=t.project;
+document.getElementById('supportTitle').innerText=t.support;
+document.getElementById('callBtn').innerText=t.call;
+document.getElementById('zaloBtn').innerText=t.zalo;
+document.getElementById('messBtn').innerText=t.mess;
+document.getElementById('mapBtn').innerText=t.map;
+
 }
 
-window.onload = calc;
+function calc(){
+
+let m=parseFloat(document.getElementById("money").value);
+
+let battery=parseFloat(document.getElementById("battery").value);
+
+let t=data[currentLang];
+
+if(m<=0||isNaN(m)){
+
+alert(t.alert);
+
+return;
+
+}
+
+let kw=0;
+
+if(m<=2000000){
+kw=3.5;
+}
+else if(m<=4000000){
+kw=6;
+}
+else if(m<=7000000){
+kw=10;
+}
+else{
+kw=(m/650000).toFixed(1);
+}
+
+let total=(kw*11500000)+(battery*3500000);
+
+let save=m*0.85;
+
+let remain=m-save;
+
+let payback=(total/save/12).toFixed(1);
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("result").innerHTML=
+
+"<b>⚡ Công suất đề xuất:</b> "+kw+" kWp<br><br>"+
+
+"<b>🔋 Pin lưu trữ:</b> "+battery+" kWh<br><br>"+
+
+"<b>💰 Tổng đầu tư:</b> "+Number(total).toLocaleString('vi-VN')+" VNĐ<br><br>"+
+
+"<b>💵 Tiết kiệm hàng tháng:</b> "+Number(save).toLocaleString('vi-VN')+" VNĐ<br><br>"+
+
+"<b>📉 Tiền điện còn lại:</b> "+Number(remain).toLocaleString('vi-VN')+" VNĐ<br><br>"+
+
+"<b>⏳ Hoàn vốn:</b> "+payback+" năm";
+
+}
+
+window.onload=function(){
+
+document.getElementById('qrImg').src=
+'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+
+encodeURIComponent('https://zalo.me/0838933628');
+
+}
+
 </script>
+
 </body>
 </html>
+```
+
+
